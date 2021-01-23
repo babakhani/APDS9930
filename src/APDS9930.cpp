@@ -42,12 +42,12 @@ APDS9930::~APDS9930()
  *
  * @return True if initialized successfully. False otherwise.
  */
-bool APDS9930::init()
+bool APDS9930::init(SDA, SCL)
 {
     uint8_t id;
 
     /* Initialize I2C */
-    Wire.begin();
+    Wire.begin(SDA, SCL);
      
     /* Read ID register and check against known values for APDS-9930 */
     if( !wireReadDataByte(APDS9930_ID, id) ) {
